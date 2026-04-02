@@ -1,0 +1,21 @@
+[tool.mypy]
+files = ["app/"]
+plugins = ["pydantic.mypy"]
+
+[tool.black]
+line-length = 79
+
+[tool.isort]
+profile = "black"
+
+[tool.ruff]  # alternative to flake8
+line-length = 79
+lint.select = ["E", "F", "W", "C90", "B"]  # common checks
+lint.ignore = ["B008"]
+
+[tool.pytest.ini_options]
+minversion = "7.0"
+addopts = "--strict-markers"
+testpaths = ["tests"]
+pythonpath = ["."]
+asyncio_mode = "auto"
